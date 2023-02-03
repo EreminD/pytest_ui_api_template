@@ -11,3 +11,4 @@
 
 ### Полезные ссылки
 - [Подсказка по markdown](https://www.markdownguide.org/cheat-sheet/)
+- [Генератор файла .gitignore](https://www.toptal.com/developers/gitignore/)
