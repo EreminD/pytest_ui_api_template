@@ -30,7 +30,10 @@ def api_client_no_auth() -> BoardApi:
 @pytest.fixture
 def dummy_board_id() -> str:
     api = BoardApi("https://api.trello.com/1", "61790ff29348904bc42217da/ATTSuG9eBENjDVWwfSBeZYy87yFvmtn3tzC5BZDqAp3grYKklpMHzlXdbU01zpzdRS9h83679F3F")
-    resp = api.create_board("Board to be deleted").get("id")
+    
+    with allure.step("Предварительно создать доску"):
+        resp = api.create_board("Board to be deleted").get("id")
+    
     return resp
 
 @pytest.fixture
@@ -38,6 +41,7 @@ def delete_board() -> str:
     dictionary = {"board_id": ""}
     yield dictionary
     
-    api = BoardApi("https://api.trello.com/1", "61790ff29348904bc42217da/ATTSuG9eBENjDVWwfSBeZYy87yFvmtn3tzC5BZDqAp3grYKklpMHzlXdbU01zpzdRS9h83679F3F")
-    api.delete_board_by_id(dictionary.get("board_id"))
+    with allure.step("Удалит доску, после теста"):
+        api = BoardApi("https://api.trello.com/1", "61790ff29348904bc42217da/ATTSuG9eBENjDVWwfSBeZYy87yFvmtn3tzC5BZDqAp3grYKklpMHzlXdbU01zpzdRS9h83679F3F")
+        api.delete_board_by_id(dictionary.get("board_id"))
 
