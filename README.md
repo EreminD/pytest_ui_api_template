@@ -21,7 +21,7 @@
 - ./test - тесты
 - ./pages - описание страниц
 - ./api - хелперы для работы с API
-- ./db - хелперы для работы с БД
+- ./db - хелперы для работы с БД (?)
 
 
 ### Полезные ссылки
@@ -33,3 +33,4 @@
 - pip install selenium
 - pip install webdriver-manager
 - pip install allure-pytest
+- pip install requests
