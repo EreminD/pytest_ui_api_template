@@ -4,11 +4,14 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from configuration.ConfigProvider import ConfigProvider
+
 class MainPage:
     
     def __init__(self, driver: WebDriver) -> None:
         self.__driver = driver
-        self.__url = ("https://trello.com/u/skyeng_user_d/boards")
+        self.url = ConfigProvider().get("ui", "base_url")
+        self.__url = self.url+"/u/skyeng_user_d/boards"
     
     @allure.step("Перейти на страницу авторизации")
     def go(self):
@@ -56,4 +59,4 @@ class MainPage:
     @allure.step("Нажать сохранить")
     def click_save_button(self):
         self.__driver.find_element(By.CSS_SELECTOR, "button[data-testid=create-board-submit-button]").click()
-        WebDriverWait(self.__driver, 10).until(EC.url_contains("https://trello.com/b/"))
+        WebDriverWait(self.__driver, 10).until(EC.url_contains(self.url+"/b/"))
