@@ -5,12 +5,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from configuration.ConfigProvider import ConfigProvider
+from testdata.DataProvider import DataProvider
 
 class MainPage:
     
     def __init__(self, driver: WebDriver) -> None:
         self.__driver = driver
         self.url = ConfigProvider().get("ui", "base_url")
+        self.data = DataProvider()
         self.__url = self.url+"/u/skyeng_user_d/boards"
     
     @allure.step("Перейти на страницу авторизации")
@@ -38,7 +40,7 @@ class MainPage:
     def add_cookie(self):
         cookie = {
             "name":"token",
-            "value": "61790ff29348904bc42217da/ATTScFe6dPKBilH7OURFgFCbRjFEDXjshGEi6hwBIk90ecMT2M0xp7K3eXjuk6itr7fs1BA6608A"
+            "value": self.data.get_token()
         }
         self.__driver.add_cookie(cookie)
     
