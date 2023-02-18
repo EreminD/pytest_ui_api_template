@@ -1,7 +1,7 @@
 {
-    "token": "61790ff29348904bc42217da/ATTSuG9eBENjDVWwfSBeZYy87yFvmtn3tzC5BZDqAp3grYKklpMHzlXdbU01zpzdRS9h83679F3F",
-    "email": "dmitry.eremin@inbox.ru",
-    "pass": "sky123456",
-    "username": "Dmitry",
-    "org_id": "617910020c566f69cac8e33d"
+    "token": "your_token",
+    "email": "your_email@mail.test",
+    "pass": "your_pass",
+    "username": "Username",
+    "org_id": "your_org_id"
 }
