@@ -2,6 +2,6 @@
     "token": "your_token",
     "email": "your_email@mail.test",
     "pass": "your_pass",
-    "username": "Username",
+    "username": "your_username",
     "org_id": "your_org_id"
 }
